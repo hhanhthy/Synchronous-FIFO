@@ -41,7 +41,7 @@ The top-level module `Synchronous_FIFO` is composed of four sub-modules:
 
 ## Waveform
 
-![Timing Waveform](images/Synchronous_FIFO-1_Wave_form_drawio.png)
+![Timing Waveform](images/Synchronous_FIFO-1.Wave_form.drawio.png)
 
 Key behaviors visible in the waveform:
 

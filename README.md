@@ -39,14 +39,6 @@ Data enters at the top and exits at the bottom. The **Write Pointer** tracks whe
 
 The top-level module `Synchronous_FIFO` is composed of four sub-modules:
 
-| Sub-module | Role |
-|------------|------|
-| `write` | Manages the write pointer and generates `fifo_w_en` |
-| `read` | Manages the read pointer and generates `fifo_r_en` |
-| `state` | Computes full/empty flags and overflow/underflow flags |
-| `array` | The actual memory array; performs read/write using pointer indices |
-
-
 ## Waveform
 
 ![Timing Waveform](images/Synchronous_FIFO-1_Wave_form_drawio.png)
@@ -61,13 +53,13 @@ Key behaviors visible in the waveform:
 
 ### Low-Level Sub-modules
 
-![Low-Level Diagram](images/Synchronous_FIFO-3__Lowlevel_drawio.png)
+![Low-Level Diagram](images/Synchronous_FIFO-3.Lowlevel.drawio.png)
 
 
 
 #### Write Module
 
-![Write Module](images/Synchronous_FIFO-4_Write_pointer_drawio.png)
+![Write Module](images/Synchronous_FIFO-4.Write_pointer.drawio.png)
 
 **Inputs:** `clk`, `rst_n`, `w_en`, `fifo_full`  
 **Outputs:** `w_ptr [PTR_WIDTH:0]`, `fifo_w_en`
@@ -80,7 +72,7 @@ Key behaviors visible in the waveform:
 
 #### Read Module
 
-![Read Module](images/Synchronous_FIFO-5_Read_pointer_drawio.png)
+![Read Module](images/Synchronous_FIFO-5.Read_pointer_drawio.png)
 
 **Inputs:** `clk`, `rst_n`, `r_en`, `fifo_empty`  
 **Outputs:** `r_ptr [PTR_WIDTH:0]`, `fifo_r_en`
@@ -92,7 +84,7 @@ Key behaviors visible in the waveform:
 
 #### State Module
 
-![State Module](images/Synchronous_FIFO-6_FIFO_state_drawio.png)
+![State Module](images/Synchronous_FIFO-6.FIFO_state_drawio.png)
 
 **Inputs:** `clk`, `rst_n`, `w_en`, `r_en`, `w_ptr [PTR_WIDTH:0]`, `r_ptr [PTR_WIDTH:0]`  
 **Outputs:** `fifo_full`, `fifo_empty`, `fifo_overflow_flag`, `fifo_underflow_flag`
@@ -111,7 +103,7 @@ This module computes FIFO status by comparing the write and read pointers:
 
 #### Array Module
 
-![Array Module](images/Synchronous_FIFO-7_FIFO_array_drawio.png)
+![Array Module](images/Synchronous_FIFO-7.FIFO_array_drawio.png)
 
 **Inputs:** `clk`, `data_in`, `fifo_r_en`, `fifo_w_en`, `w_ptr [PTR_WIDTH:0]`, `r_ptr [PTR_WIDTH:0]`  
 **Outputs:** `data_out [DATA_WIDTH-1:0]`
